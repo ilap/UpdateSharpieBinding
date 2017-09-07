@@ -1,0 +1,18 @@
+Create the following directories
+
+1. Source - This directory should contians the links to the source frameworks
+2. Frameworks - includes the baseline framework that's link to the real old frameworks
+.
+|____bin
+| |____do_headers.ksh
+| |____ENV
+| |____do_sharpie.ksh
+|____VERSION       --> The Materialcomponents version that is in the Framework dir
+|____Sources
+| |____MotionAnimator.framework --> Link to the latest frameworks specified in the VERSION.
+| |____MotionTransitioning.framework
+| |____MotionInterchange.framework
+| |____MaterialComponents.framework
+|____Frameworks
+| |____31.0.0       --> Link to the direcotry that includes all the frameworks
+| |____baseline     --> link to the version e.g. to 31.0.0 that's the baseline 

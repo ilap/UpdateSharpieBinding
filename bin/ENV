@@ -1,0 +1,33 @@
+if [ -z "$1" ]; then
+	echo "BASE_DIR must be set. Exiting."
+#	exit 1
+fi
+
+# Source Frameworks dir
+export BASE_DIR="$1"
+
+if [ ! -f "${BASE_DIR}/VERSION" ]; then
+	echo "BASE_DIR must be set. Exiting."
+#	exit 1
+else
+	export NEW_VER=`cat ${BASE_DIR}/VERSION`
+fi
+
+export SRC_DIR="${BASE_DIR}"/Sources
+
+export DST_DIR="${BASE_DIR}"/Output/
+export API_DIR="${DST_DIR}"/Api/
+export APID_DIR="${API_DIR}"/Diffs/
+export APIH_DIR="${API_DIR}"/Headers/
+export HDR_DIR="${DST_DIR}"/Headers/
+export CMP_DIR="${DST_DIR}"/Components/
+
+export FWS_DIR="${BASE_DIR}"/Frameworks/baseline
+
+if [ ! -L "${FWS_DIR}" ]; then
+	echo "${FWS_DIR} must exist. Exiting."
+#	exit 1
+else
+	export BAS_VER=`ls -l "${FWS_DIR}" 2>/dev/null | sed -e 's@^.*[ 	]@@'`
+fi
+
